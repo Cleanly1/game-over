@@ -16,6 +16,7 @@ const gravity = 0.25;
 const colors = ["red", "orange", "yellow", "lime", "cyan", "magenta"];
 let level = 1;
 let score = 0;
+let notFirstTime;
 
 let showLevels = false;
 let levelsMenuPos = 1;

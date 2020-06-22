@@ -39,9 +39,11 @@ function start() {
 }
 
 function draw() {
+  firstTime = getItem("notFirstTime") === false ? false : true;
   setGradient(0, 0, width, height, c1, c2);
-
-  if (!gameStart && !showLevels) {
+  if (firstTime) {
+    menu.drawHelp();
+  } else if (!gameStart && !showLevels) {
     menu.drawMain();
   } else if (showLevels) {
     menu.drawLevels();
@@ -220,7 +222,7 @@ function keyPressed() {
     shootArrowSound.play();
   }
   //up
-  else if (keyCode === 38 && !gameStart) {
+  else if (keyCode === 38 && !gameStart && !firstTime) {
     clickSound.play();
     if (menuPos > 1 && !showLevels) {
       menuPos--;
@@ -229,7 +231,7 @@ function keyPressed() {
     }
   }
   // down
-  else if (keyCode === 40 && !gameStart) {
+  else if (keyCode === 40 && !gameStart && !firstTime) {
     clickSound.play();
     if (menuPos < 3 && !showLevels) {
       menuPos++;
@@ -238,7 +240,7 @@ function keyPressed() {
     }
   }
   //enter
-  else if (keyCode === 13 && !gameStart && !showLevels) {
+  else if (keyCode === 13 && !gameStart && !showLevels && !firstTime) {
     clickSound.play();
     if (menuPos === 1) {
       gameOver = false;

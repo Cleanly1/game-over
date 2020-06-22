@@ -85,4 +85,41 @@ class Menu {
 
     pop();
   }
+  drawHelp() {
+    push();
+    textAlign(CENTER);
+    fill(0, 0, 0);
+    stroke(51);
+    textSize(36);
+    text(`Welcome!`, this.menuX, this.menuY - 100);
+    textSize(14);
+    text(
+      `This game is inspired by Bubble Trouble.
+
+    - Press enter to start game, or use the down key to choose level.
+
+    - Move player with right and left keys.
+
+    - Shoot arrows with spacebar.
+
+    - To level up you have to shoot all bubbles until there is no left.
+
+    - This game has only two levels so when the second level is done you have won the game.
+
+    - When you start a new game you will se your highscore in the score table in the top left corner.
+
+    Have fun!`,
+      this.menuX,
+      this.menuY - 50
+    );
+    text(
+      `
+    I understand the game!
+    (Press Enter to continue)
+    `,
+      this.menuX,
+      this.menuY + 220
+    );
+    pop();
+  }
 }
